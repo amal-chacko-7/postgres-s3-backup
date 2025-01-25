@@ -1,0 +1,16 @@
+exchanges:
+  NSE:
+    RELIANCE:
+      - GTE: 2000
+      - LTE: 3000
+      - GTE: 1000
+    TCS:
+      - GTE: 2000
+      - LTE: 3000
+    INFY:
+      - GTE: 2000
+      - LTE: 3000  
+  DELTA_EXCHANGE:
+    BTCUSD:
+      - GTE: 150000
+      - LTE: 200000
