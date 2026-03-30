@@ -1,6 +1,4 @@
-# SQL Interview Prep — Fresher (2–4 Hour Guide)
-
-> **How to use this:** Read top to bottom. Try writing each query yourself before moving on. Focus more time on sections marked 🔥.
+# SQL Interview Prep
 
 ---
 
