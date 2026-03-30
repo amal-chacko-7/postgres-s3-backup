@@ -103,63 +103,6 @@ HAVING AVG(salary) > 50000;
 
 ---
 
-## 7. 🔥 JOINs
-
-JOINs combine data from two or more tables.
-
-Assume two tables: `employees(id, name, dept_id)` and `departments(dept_id, dept_name)`
-
-```sql
--- INNER JOIN: only matching rows in both tables
-SELECT e.name, d.dept_name
-FROM employees e
-INNER JOIN departments d ON e.dept_id = d.dept_id;
-
--- LEFT JOIN: all rows from left table + matching from right
-SELECT e.name, d.dept_name
-FROM employees e
-LEFT JOIN departments d ON e.dept_id = d.dept_id;
-
--- RIGHT JOIN: all rows from right + matching from left
-SELECT e.name, d.dept_name
-FROM employees e
-RIGHT JOIN departments d ON e.dept_id = d.dept_id;
-
--- FULL OUTER JOIN: all rows from both
-SELECT e.name, d.dept_name
-FROM employees e
-FULL OUTER JOIN departments d ON e.dept_id = d.dept_id;
-```
-
-### Quick Visual
-
-```
-Table A   Table B
-
-INNER  →  only the overlap
-LEFT   →  all of A + overlap
-RIGHT  →  all of B + overlap
-FULL   →  everything
-```
-
----
-
-## 8. Subqueries
-
-A query inside another query.
-
-```sql
--- Employees earning more than the average salary
-SELECT name FROM employees
-WHERE salary > (SELECT AVG(salary) FROM employees);
-
--- Employees in departments located in 'Mumbai'
-SELECT name FROM employees
-WHERE dept_id IN (SELECT dept_id FROM departments WHERE location = 'Mumbai');
-```
-
----
-
 ## 9. 🔥 DDL — Creating & Modifying Tables
 
 ```sql
@@ -213,50 +156,6 @@ Rules applied to columns to ensure data integrity.
 | `NOT NULL` | Value must always be provided |
 | `DEFAULT` | Auto-fills a value if none given |
 | `CHECK` | Custom condition must be true |
-
----
-
-## 12. Indexes
-
-An index speeds up data retrieval (like a book's index).
-
-```sql
-CREATE INDEX idx_name ON employees(name);
-DROP INDEX idx_name;
-```
-
-> Indexes make `SELECT` faster but can slow down `INSERT`/`UPDATE`.
-
----
-
-## 13. Views
-
-A virtual table based on a query — useful for simplifying complex queries.
-
-```sql
-CREATE VIEW high_earners AS
-SELECT name, salary FROM employees WHERE salary > 60000;
-
-SELECT * FROM high_earners;
-
-DROP VIEW high_earners;
-```
-
----
-
-## 14. Transactions
-
-Group of operations treated as one unit. Either all succeed or all fail.
-
-```sql
-BEGIN;
-  UPDATE accounts SET balance = balance - 1000 WHERE id = 1;
-  UPDATE accounts SET balance = balance + 1000 WHERE id = 2;
-COMMIT;   -- save changes
-
--- Or if something goes wrong:
-ROLLBACK; -- undo all changes
-```
 
 ---
 
