@@ -80,29 +80,6 @@ SELECT MAX(salary)       FROM employees;
 SELECT MIN(salary)       FROM employees;
 ```
 
----
-
-## 6. 🔥 GROUP BY and HAVING
-
-`GROUP BY` groups rows. `HAVING` filters groups (like WHERE, but for aggregates).
-
-```sql
--- Salary total per department
-SELECT department, SUM(salary)
-FROM employees
-GROUP BY department;
-
--- Only departments with avg salary > 50000
-SELECT department, AVG(salary)
-FROM employees
-GROUP BY department
-HAVING AVG(salary) > 50000;
-```
-
-> **Remember:** `WHERE` filters rows → `HAVING` filters groups.
-
----
-
 ## 9. 🔥 DDL — Creating & Modifying Tables
 
 ```sql
