@@ -1,0 +1,337 @@
+# SQL Interview Prep — Fresher (2–4 Hour Guide)
+
+> **How to use this:** Read top to bottom. Try writing each query yourself before moving on. Focus more time on sections marked 🔥.
+
+---
+
+## 1. What is SQL?
+
+SQL (Structured Query Language) is used to interact with **relational databases** — data stored in tables with rows and columns.
+
+Key databases you'll hear about: **MySQL, PostgreSQL, Oracle, SQL Server, SQLite**
+
+---
+
+## 2. Types of SQL Commands
+
+| Type | What it does | Commands |
+|------|-------------|----------|
+| **DDL** — Data Definition | Define/modify structure | `CREATE`, `ALTER`, `DROP`, `TRUNCATE` |
+| **DML** — Data Manipulation | Work with data | `SELECT`, `INSERT`, `UPDATE`, `DELETE` |
+| **DCL** — Data Control | Permissions | `GRANT`, `REVOKE` |
+| **TCL** — Transaction Control | Manage transactions | `COMMIT`, `ROLLBACK`, `SAVEPOINT` |
+
+---
+
+## 3. 🔥 Basic SELECT Queries
+
+```sql
+-- Get all columns
+SELECT * FROM employees;
+
+-- Get specific columns
+SELECT name, salary FROM employees;
+
+-- With a condition
+SELECT * FROM employees WHERE salary > 50000;
+
+-- Sort results
+SELECT * FROM employees ORDER BY salary DESC;
+
+-- Limit rows
+SELECT * FROM employees LIMIT 5;
+```
+
+---
+
+## 4. 🔥 Filtering — WHERE Clause
+
+```sql
+-- Comparison operators: =, !=, >, <, >=, <=
+SELECT * FROM employees WHERE department = 'HR';
+
+-- Multiple conditions
+SELECT * FROM employees WHERE department = 'HR' AND salary > 40000;
+
+-- Range
+SELECT * FROM employees WHERE salary BETWEEN 30000 AND 60000;
+
+-- Match a list
+SELECT * FROM employees WHERE department IN ('HR', 'Finance');
+
+-- Pattern matching
+SELECT * FROM employees WHERE name LIKE 'A%';   -- starts with A
+SELECT * FROM employees WHERE name LIKE '%kumar'; -- ends with kumar
+
+-- NULL checks
+SELECT * FROM employees WHERE manager_id IS NULL;
+```
+
+---
+
+## 5. 🔥 Aggregate Functions
+
+Used to compute a value from multiple rows.
+
+```sql
+SELECT COUNT(*)          FROM employees;               -- total rows
+SELECT COUNT(salary)     FROM employees;               -- non-null salaries
+SELECT SUM(salary)       FROM employees;
+SELECT AVG(salary)       FROM employees;
+SELECT MAX(salary)       FROM employees;
+SELECT MIN(salary)       FROM employees;
+```
+
+---
+
+## 6. 🔥 GROUP BY and HAVING
+
+`GROUP BY` groups rows. `HAVING` filters groups (like WHERE, but for aggregates).
+
+```sql
+-- Salary total per department
+SELECT department, SUM(salary)
+FROM employees
+GROUP BY department;
+
+-- Only departments with avg salary > 50000
+SELECT department, AVG(salary)
+FROM employees
+GROUP BY department
+HAVING AVG(salary) > 50000;
+```
+
+> **Remember:** `WHERE` filters rows → `HAVING` filters groups.
+
+---
+
+## 7. 🔥 JOINs
+
+JOINs combine data from two or more tables.
+
+Assume two tables: `employees(id, name, dept_id)` and `departments(dept_id, dept_name)`
+
+```sql
+-- INNER JOIN: only matching rows in both tables
+SELECT e.name, d.dept_name
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.dept_id;
+
+-- LEFT JOIN: all rows from left table + matching from right
+SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.dept_id = d.dept_id;
+
+-- RIGHT JOIN: all rows from right + matching from left
+SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.dept_id = d.dept_id;
+
+-- FULL OUTER JOIN: all rows from both
+SELECT e.name, d.dept_name
+FROM employees e
+FULL OUTER JOIN departments d ON e.dept_id = d.dept_id;
+```
+
+### Quick Visual
+
+```
+Table A   Table B
+
+INNER  →  only the overlap
+LEFT   →  all of A + overlap
+RIGHT  →  all of B + overlap
+FULL   →  everything
+```
+
+---
+
+## 8. Subqueries
+
+A query inside another query.
+
+```sql
+-- Employees earning more than the average salary
+SELECT name FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+
+-- Employees in departments located in 'Mumbai'
+SELECT name FROM employees
+WHERE dept_id IN (SELECT dept_id FROM departments WHERE location = 'Mumbai');
+```
+
+---
+
+## 9. 🔥 DDL — Creating & Modifying Tables
+
+```sql
+-- Create
+CREATE TABLE employees (
+    id        INT PRIMARY KEY,
+    name      VARCHAR(100) NOT NULL,
+    salary    DECIMAL(10,2),
+    dept_id   INT
+);
+
+-- Add a column
+ALTER TABLE employees ADD COLUMN email VARCHAR(100);
+
+-- Drop a column
+ALTER TABLE employees DROP COLUMN email;
+
+-- Delete all rows (keeps structure)
+TRUNCATE TABLE employees;
+
+-- Delete table entirely
+DROP TABLE employees;
+```
+
+---
+
+## 10. DML — Insert, Update, Delete
+
+```sql
+-- Insert
+INSERT INTO employees (id, name, salary) VALUES (1, 'Rahul', 45000);
+
+-- Update
+UPDATE employees SET salary = 50000 WHERE id = 1;
+
+-- Delete specific rows
+DELETE FROM employees WHERE id = 1;
+```
+
+---
+
+## 11. Constraints
+
+Rules applied to columns to ensure data integrity.
+
+| Constraint | Purpose |
+|-----------|---------|
+| `PRIMARY KEY` | Unique + NOT NULL identifier for each row |
+| `FOREIGN KEY` | Links to a primary key in another table |
+| `UNIQUE` | No duplicate values |
+| `NOT NULL` | Value must always be provided |
+| `DEFAULT` | Auto-fills a value if none given |
+| `CHECK` | Custom condition must be true |
+
+---
+
+## 12. Indexes
+
+An index speeds up data retrieval (like a book's index).
+
+```sql
+CREATE INDEX idx_name ON employees(name);
+DROP INDEX idx_name;
+```
+
+> Indexes make `SELECT` faster but can slow down `INSERT`/`UPDATE`.
+
+---
+
+## 13. Views
+
+A virtual table based on a query — useful for simplifying complex queries.
+
+```sql
+CREATE VIEW high_earners AS
+SELECT name, salary FROM employees WHERE salary > 60000;
+
+SELECT * FROM high_earners;
+
+DROP VIEW high_earners;
+```
+
+---
+
+## 14. Transactions
+
+Group of operations treated as one unit. Either all succeed or all fail.
+
+```sql
+BEGIN;
+  UPDATE accounts SET balance = balance - 1000 WHERE id = 1;
+  UPDATE accounts SET balance = balance + 1000 WHERE id = 2;
+COMMIT;   -- save changes
+
+-- Or if something goes wrong:
+ROLLBACK; -- undo all changes
+```
+
+---
+
+## 15. Key Concepts to Know (Theory)
+
+### ACID Properties
+- **Atomicity** — All or nothing
+- **Consistency** — Data stays valid
+- **Isolation** — Transactions don't interfere
+- **Durability** — Committed changes are permanent
+
+### Normalization (basics)
+| Form | Rule |
+|------|------|
+| **1NF** | No repeating groups; atomic values |
+| **2NF** | 1NF + no partial dependency on composite key |
+| **3NF** | 2NF + no transitive dependency |
+
+### DELETE vs TRUNCATE vs DROP
+| Command | Removes | Rollback? | Keeps structure? |
+|---------|---------|-----------|-----------------|
+| `DELETE` | Specific rows | ✅ Yes | ✅ Yes |
+| `TRUNCATE` | All rows | ❌ No | ✅ Yes |
+| `DROP` | Entire table | ❌ No | ❌ No |
+
+### WHERE vs HAVING
+- `WHERE` → filters **rows** (before grouping)
+- `HAVING` → filters **groups** (after GROUP BY)
+
+---
+
+## 16. 🔥 Common Interview Questions
+
+1. What is a primary key vs foreign key?
+2. Difference between `INNER JOIN` and `LEFT JOIN`?
+3. What is normalization? Why do we do it?
+4. What is the difference between `DELETE`, `TRUNCATE`, and `DROP`?
+5. Can we use `WHERE` with aggregate functions? *(No — use `HAVING`)*
+6. What is a view? Why use it?
+7. Write a query to find the second highest salary.
+8. What are indexes? Pros and cons?
+9. Explain ACID properties.
+10. What is a self-join?
+
+### Bonus: Second Highest Salary
+```sql
+-- Method 1: Using LIMIT + OFFSET
+SELECT DISTINCT salary FROM employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+
+-- Method 2: Using subquery
+SELECT MAX(salary) FROM employees
+WHERE salary < (SELECT MAX(salary) FROM employees);
+```
+
+---
+
+## Quick Revision Checklist
+
+- [ ] SELECT, WHERE, ORDER BY, LIMIT
+- [ ] Aggregate functions (COUNT, SUM, AVG, MAX, MIN)
+- [ ] GROUP BY + HAVING
+- [ ] All 4 JOINs (INNER, LEFT, RIGHT, FULL)
+- [ ] Subqueries
+- [ ] CREATE, ALTER, DROP, TRUNCATE
+- [ ] INSERT, UPDATE, DELETE
+- [ ] Constraints (PK, FK, UNIQUE, NOT NULL)
+- [ ] Views and Indexes
+- [ ] Transactions (COMMIT, ROLLBACK)
+- [ ] ACID properties
+- [ ] Normalization (1NF, 2NF, 3NF)
+
+---
+
+*Good luck with your interview! 🚀*
