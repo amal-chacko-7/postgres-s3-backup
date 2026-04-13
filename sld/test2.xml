@@ -32,7 +32,10 @@
           <!-- TEXT LABEL -->
           <TextSymbolizer>
             <Label>
-              <ogc:PropertyName>CrashDate</ogc:PropertyName>
+              <ogc:Function name="dateFormat">
+                <ogc:Literal>dd-MM-yyyy</ogc:Literal>
+                <ogc:PropertyName>CrashDate</ogc:PropertyName>
+              </ogc:Function>
             </Label>
 
             <Font>
