@@ -6,7 +6,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <NamedLayer>
-    <Name>Crash Points - Black with Date</Name>
+    <Name>cambridge_crash_stag_view</Name>
     <UserStyle>
       <Title>Crashes Black + CrashDate Label</Title>
 
