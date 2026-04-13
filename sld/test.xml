@@ -1,64 +1,236 @@
-<StyledLayerDescriptor version="1.0.0">
-  <NamedLayer>
-    <Name>cambridge_crash_view</Name>
-    <UserStyle>
-      <FeatureTypeStyle>
-        <Rule>
-
-          <!-- Point styling -->
-          <PointSymbolizer>
-            <Graphic>
-              <Mark>
-                <WellKnownName>circle</WellKnownName>
-                <Fill>
-                  <CssParameter name="fill">#ff0000</CssParameter>
-                </Fill>
-              </Mark>
-              <Size>6</Size>
-            </Graphic>
-          </PointSymbolizer>
-
-          <!-- Label styling -->
-          <TextSymbolizer>
-            <Label>
-              <PropertyName>CrashDate</PropertyName>
-            </Label>
-
-            <!-- Font -->
-            <Font>
-              <CssParameter name="font-family">Arial</CssParameter>
-              <CssParameter name="font-size">10</CssParameter>
-              <CssParameter name="font-style">normal</CssParameter>
-              <CssParameter name="font-weight">bold</CssParameter>
-            </Font>
-
-            <!-- Label color -->
-            <Fill>
-              <CssParameter name="fill">#000000</CssParameter>
-            </Fill>
-
-            <!-- Halo for readability -->
-            <Halo>
-              <Radius>1</Radius>
-              <Fill>
-                <CssParameter name="fill">#ffffff</CssParameter>
-              </Fill>
-            </Halo>
-
-            <!-- Position relative to point -->
-            <LabelPlacement>
-              <PointPlacement>
-                <Displacement>
-                  <DisplacementX>5</DisplacementX>
-                  <DisplacementY>5</DisplacementY>
-                </Displacement>
-              </PointPlacement>
-            </LabelPlacement>
-
-          </TextSymbolizer>
-
-        </Rule>
-      </FeatureTypeStyle>
-    </UserStyle>
-  </NamedLayer>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<StyledLayerDescriptor version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd" xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<NamedLayer>
+		<Name>Crashes</Name>
+		<UserStyle>
+			<Title>Crashes</Title>
+			<FeatureTypeStyle>
+				<Rule>
+					<Title>  Fatal</Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+							<ogc:Literal>Fatal</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<PointSymbolizer>
+						<Graphic>
+							<ExternalGraphic>
+								<OnlineResource xlink:type="simple" xlink:href="/styles/fatal.svg"/>
+								<Format>image/svg+xml</Format>
+							</ExternalGraphic>
+							<Size>25</Size>
+							<AnchorPoint>
+                          <AnchorPointX>0.7</AnchorPointX>
+                          <AnchorPointY>0</AnchorPointY>
+                     </AnchorPoint>
+						</Graphic>
+					</PointSymbolizer>
+				</Rule>
+				<Rule>
+					<Title>Fatal - Reference Number</Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+							<ogc:Literal>Fatal</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<!-- Hide label at wider zoom levels; show only after zooming in past this scale -->
+					<MaxScaleDenominator>30000</MaxScaleDenominator>
+					<!-- Adjust as needed -->
+					<TextSymbolizer>
+						<Label>
+							<ogc:PropertyName>ReferenceNumber</ogc:PropertyName>
+						</Label>
+						<Font>
+							<CssParameter name="font-family">Calibri</CssParameter>
+							<CssParameter name="font-size">14</CssParameter>
+							<CssParameter name="font-weight">bold</CssParameter>
+						</Font>
+						<LabelPlacement>
+							<PointPlacement>
+								<AnchorPoint>
+									<AnchorPointX>0.5</AnchorPointX>
+									<AnchorPointY>0.5</AnchorPointY>
+								</AnchorPoint>
+								<Displacement>
+									<DisplacementX>0</DisplacementX>
+									<DisplacementY>35</DisplacementY>
+									<!-- Matches OpenLayers offsetY -->
+								</Displacement>
+							</PointPlacement>
+						</LabelPlacement>
+						<Halo>
+							<Radius>
+								<ogc:Literal>2</ogc:Literal>
+								<!-- Stroke width -->
+							</Radius>
+							<Fill>
+								<CssParameter name="fill">#FFFFFF</CssParameter>
+								<!-- Stroke color -->
+							</Fill>
+						</Halo>
+						<Fill>
+							<CssParameter name="fill">#FF0000</CssParameter>
+							<!-- Text color -->
+						</Fill>
+						<Priority>1</Priority>
+						<!-- Vendor options for collision handling -->
+						<VendorOption name="conflictResolution">false</VendorOption>
+						<VendorOption name="maxDisplacement">100</VendorOption>
+					</TextSymbolizer>
+				</Rule>
+				<Rule>
+					<Title>  Slight</Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+							<ogc:Literal>Slight</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<PointSymbolizer>
+						<Graphic>
+							<ExternalGraphic>
+								<OnlineResource xlink:type="simple" xlink:href="/styles/slight.svg"/>
+								<Format>image/svg+xml</Format>
+							</ExternalGraphic>
+							<Size>25</Size>
+							<AnchorPoint>
+                          <AnchorPointX>0.7</AnchorPointX>
+                          <AnchorPointY>0</AnchorPointY>
+                     </AnchorPoint>
+						</Graphic>
+					</PointSymbolizer>
+				</Rule>
+				<Rule>
+					<Title>Slight - Reference Number</Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+							<ogc:Literal>Slight</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<!-- Hide label at wider zoom levels; show only after zooming in past this scale -->
+					<MaxScaleDenominator>30000</MaxScaleDenominator>
+					<!-- Adjust as needed -->
+					<TextSymbolizer>
+						<Label>
+							<ogc:PropertyName>ReferenceNumber</ogc:PropertyName>
+						</Label>
+						<Font>
+							<CssParameter name="font-family">Calibri</CssParameter>
+							<CssParameter name="font-size">14</CssParameter>
+							<CssParameter name="font-weight">bold</CssParameter>
+						</Font>
+						<LabelPlacement>
+							<PointPlacement>
+								<AnchorPoint>
+									<AnchorPointX>0.5</AnchorPointX>
+									<AnchorPointY>0.5</AnchorPointY>
+								</AnchorPoint>
+								<Displacement>
+									<DisplacementX>0</DisplacementX>
+									<DisplacementY>35</DisplacementY>
+									<!-- Matches OpenLayers offsetY -->
+								</Displacement>
+							</PointPlacement>
+						</LabelPlacement>
+						<Halo>
+							<Radius>
+								<ogc:Literal>2</ogc:Literal>
+								<!-- Stroke width -->
+							</Radius>
+							<Fill>
+								<CssParameter name="fill">#FFFFFF</CssParameter>
+								<!-- Stroke color -->
+							</Fill>
+						</Halo>
+						<Fill>
+							<CssParameter name="fill">#0f994e</CssParameter>
+							<!-- Text color -->
+						</Fill>
+						<Priority>1</Priority>
+						<!-- Vendor options for collision handling -->
+						<VendorOption name="conflictResolution">false</VendorOption>
+						<VendorOption name="maxDisplacement">100</VendorOption>
+					</TextSymbolizer>
+				</Rule>
+				<Rule>
+					<Title>  Serious</Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+							<ogc:Literal>Serious</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<PointSymbolizer>
+						<Graphic>
+							<ExternalGraphic>
+								<OnlineResource xlink:type="simple" xlink:href="/styles/serious.svg"/>
+								<Format>image/svg+xml</Format>
+							</ExternalGraphic>
+							<Size>25</Size>
+							<AnchorPoint>
+                          <AnchorPointX>0.7</AnchorPointX>
+                          <AnchorPointY>0</AnchorPointY>
+                     </AnchorPoint>
+						</Graphic>
+					</PointSymbolizer>
+				</Rule>
+				<Rule>
+					<Title>Serious - Reference Number</Title>
+					<ogc:Filter>
+						<ogc:PropertyIsEqualTo>
+							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+							<ogc:Literal>Serious</ogc:Literal>
+						</ogc:PropertyIsEqualTo>
+					</ogc:Filter>
+					<!-- Hide label at wider zoom levels; show only after zooming in past this scale -->
+					<MaxScaleDenominator>30000</MaxScaleDenominator>
+					<!-- Adjust as needed -->
+					<TextSymbolizer>
+						<Label>
+							<ogc:PropertyName>ReferenceNumber</ogc:PropertyName>
+						</Label>
+						<Font>
+							<CssParameter name="font-family">Calibri</CssParameter>
+							<CssParameter name="font-size">14</CssParameter>
+							<CssParameter name="font-weight">bold</CssParameter>
+						</Font>
+						<LabelPlacement>
+							<PointPlacement>
+								<AnchorPoint>
+									<AnchorPointX>0.5</AnchorPointX>
+									<AnchorPointY>0.5</AnchorPointY>
+								</AnchorPoint>
+								<Displacement>
+									<DisplacementX>0</DisplacementX>
+									<DisplacementY>35</DisplacementY>
+									<!-- Matches OpenLayers offsetY -->
+								</Displacement>
+							</PointPlacement>
+						</LabelPlacement>
+						<Halo>
+							<Radius>
+								<ogc:Literal>2</ogc:Literal>
+								<!-- Stroke width -->
+							</Radius>
+							<Fill>
+								<CssParameter name="fill">#FFFFFF</CssParameter>
+								<!-- Stroke color -->
+							</Fill>
+						</Halo>
+						<Fill>
+							<CssParameter name="fill">#ff9d00</CssParameter>
+							<!-- Text color -->
+						</Fill>
+						<Priority>1</Priority>
+						<!-- Vendor options for collision handling -->
+						<VendorOption name="conflictResolution">false</VendorOption>
+						<VendorOption name="maxDisplacement">100</VendorOption>
+					</TextSymbolizer>
+				</Rule>
+			</FeatureTypeStyle>
+		</UserStyle>
+	</NamedLayer>
 </StyledLayerDescriptor>
