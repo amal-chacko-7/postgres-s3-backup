@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<StyledLayerDescriptor version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd" xmlns="http://www.opengis.net/sld" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<StyledLayerDescriptor version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
+	xmlns="http://www.opengis.net/sld"
+	xmlns:ogc="http://www.opengis.net/ogc"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<NamedLayer>
 		<Name>cambridge_crash_stag_view</Name>
 		<UserStyle>
@@ -20,12 +24,11 @@
 								<Format>image/svg+xml</Format>
 							</ExternalGraphic>
 							<Size>25</Size>
-                          <AnchorPoint>
-                          <AnchorPointX>0.7</AnchorPointX>
-                          <AnchorPointY>0</AnchorPointY>
-                    	</AnchorPoint>
+							<AnchorPoint>
+								<AnchorPointX>0.7</AnchorPointX>
+								<AnchorPointY>0</AnchorPointY>
+							</AnchorPoint>
 						</Graphic>
-                       
 					</PointSymbolizer>
 				</Rule>
 				<Rule>
@@ -96,12 +99,11 @@
 								<Format>image/svg+xml</Format>
 							</ExternalGraphic>
 							<Size>25</Size>
-                          <AnchorPoint>
-                          <AnchorPointX>0.7</AnchorPointX>
-                          <AnchorPointY>0</AnchorPointY>
-                    	</AnchorPoint>
+							<AnchorPoint>
+								<AnchorPointX>0.7</AnchorPointX>
+								<AnchorPointY>0</AnchorPointY>
+							</AnchorPoint>
 						</Graphic>
-                      
 					</PointSymbolizer>
 				</Rule>
 				<Rule>
@@ -172,12 +174,11 @@
 								<Format>image/svg+xml</Format>
 							</ExternalGraphic>
 							<Size>25</Size>
-                          <AnchorPoint>
-                          <AnchorPointX>0.7</AnchorPointX>
-                          <AnchorPointY>0</AnchorPointY>
-                    	</AnchorPoint>
+							<AnchorPoint>
+								<AnchorPointX>0.7</AnchorPointX>
+								<AnchorPointY>0</AnchorPointY>
+							</AnchorPoint>
 						</Graphic>
-                      
 					</PointSymbolizer>
 				</Rule>
 				<Rule>
