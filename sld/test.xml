@@ -4,6 +4,8 @@
     <UserStyle>
       <FeatureTypeStyle>
         <Rule>
+
+          <!-- Point styling -->
           <PointSymbolizer>
             <Graphic>
               <Mark>
@@ -15,6 +17,46 @@
               <Size>6</Size>
             </Graphic>
           </PointSymbolizer>
+
+          <!-- Label styling -->
+          <TextSymbolizer>
+            <Label>
+              <PropertyName>CrashDate</PropertyName>
+            </Label>
+
+            <!-- Font -->
+            <Font>
+              <CssParameter name="font-family">Arial</CssParameter>
+              <CssParameter name="font-size">10</CssParameter>
+              <CssParameter name="font-style">normal</CssParameter>
+              <CssParameter name="font-weight">bold</CssParameter>
+            </Font>
+
+            <!-- Label color -->
+            <Fill>
+              <CssParameter name="fill">#000000</CssParameter>
+            </Fill>
+
+            <!-- Halo for readability -->
+            <Halo>
+              <Radius>1</Radius>
+              <Fill>
+                <CssParameter name="fill">#ffffff</CssParameter>
+              </Fill>
+            </Halo>
+
+            <!-- Position relative to point -->
+            <LabelPlacement>
+              <PointPlacement>
+                <Displacement>
+                  <DisplacementX>5</DisplacementX>
+                  <DisplacementY>5</DisplacementY>
+                </Displacement>
+              </PointPlacement>
+            </LabelPlacement>
+
+          </TextSymbolizer>
+
         </Rule>
       </FeatureTypeStyle>
     </UserStyle>
