@@ -7,28 +7,25 @@
 
   <NamedLayer>
     <Name>cambridge_crash_stag_view</Name>
+
     <UserStyle>
-      <Title>Crashes Black + CrashDate Label</Title>
+      <Title>Crashes SVG Icon + CrashDate Label</Title>
 
       <FeatureTypeStyle>
 
         <Rule>
           <Title>All crashes</Title>
 
-          <!-- POINT SYMBOL -->
+          <!-- SVG ICON -->
           <PointSymbolizer>
             <Graphic>
-              <Mark>
-                <WellKnownName>circle</WellKnownName>
-                <Fill>
-                  <CssParameter name="fill">#000000</CssParameter>
-                </Fill>
-                <Stroke>
-                  <CssParameter name="stroke">#000000</CssParameter>
-                  <CssParameter name="stroke-width">1</CssParameter>
-                </Stroke>
-              </Mark>
-              <Size>8</Size>
+              <ExternalGraphic>
+                <OnlineResource
+                  xlink:type="simple"
+                  xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
+                <Format>image/svg+xml</Format>
+              </ExternalGraphic>
+              <Size>24</Size>
             </Graphic>
           </PointSymbolizer>
 
@@ -52,7 +49,7 @@
                 </AnchorPoint>
                 <Displacement>
                   <DisplacementX>0</DisplacementX>
-                  <DisplacementY>10</DisplacementY>
+                  <DisplacementY>12</DisplacementY>
                 </Displacement>
               </PointPlacement>
             </LabelPlacement>
