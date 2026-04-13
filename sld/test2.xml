@@ -1,85 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<StyledLayerDescriptor version="1.0.0"
-  xmlns="http://www.opengis.net/sld"
-  xmlns:ogc="http://www.opengis.net/ogc"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Rule>
+  <Title>All crashes</Title>
 
-  <NamedLayer>
-    <Name>cambridge_crash_stag_view</Name>
-    <UserStyle>
-      <Title>Crashes Black + CrashDate Label</Title>
+  <!-- SVG ICON -->
+  <PointSymbolizer>
+    <Graphic>
+      <ExternalGraphic>
+        <OnlineResource
+          xlink:type="simple"
+          xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
+        <Format>image/svg+xml</Format>
+      </ExternalGraphic>
+      <Size>24</Size>
+    </Graphic>
+  </PointSymbolizer>
 
-      <FeatureTypeStyle>
+  <!-- TEXT LABEL (unchanged) -->
+  <TextSymbolizer>
+    ...
+  </TextSymbolizer>
 
-        <Rule>
-          <Title>All crashes</Title>
-
-          <!-- POINT SYMBOL -->
-          <PointSymbolizer>
-            <Graphic>
-              <Mark>
-                <WellKnownName>circle</WellKnownName>
-                <Fill>
-                  <CssParameter name="fill">#000000</CssParameter>
-                </Fill>
-                <Stroke>
-                  <CssParameter name="stroke">#000000</CssParameter>
-                  <CssParameter name="stroke-width">1</CssParameter>
-                </Stroke>
-              </Mark>
-              <Size>8</Size>
-            </Graphic>
-          </PointSymbolizer>
-
-          <!-- TEXT LABEL -->
-          <TextSymbolizer>
-            <Label>
-              <ogc:PropertyName>CrashDate</ogc:PropertyName>
-            </Label>
-
-            <Font>
-              <CssParameter name="font-family">Arial</CssParameter>
-              <CssParameter name="font-size">12</CssParameter>
-              <CssParameter name="font-weight">bold</CssParameter>
-            </Font>
-
-            <LabelPlacement>
-              <PointPlacement>
-                <AnchorPoint>
-                  <AnchorPointX>0.5</AnchorPointX>
-                  <AnchorPointY>0</AnchorPointY>
-                </AnchorPoint>
-                <Displacement>
-                  <DisplacementX>0</DisplacementX>
-                  <DisplacementY>10</DisplacementY>
-                </Displacement>
-              </PointPlacement>
-            </LabelPlacement>
-
-            <!-- White halo for readability -->
-            <Halo>
-              <Radius>2</Radius>
-              <Fill>
-                <CssParameter name="fill">#FFFFFF</CssParameter>
-              </Fill>
-            </Halo>
-
-            <!-- Black text -->
-            <Fill>
-              <CssParameter name="fill">#000000</CssParameter>
-            </Fill>
-
-            <!-- Avoid label collisions -->
-            <VendorOption name="conflictResolution">true</VendorOption>
-
-          </TextSymbolizer>
-
-        </Rule>
-
-      </FeatureTypeStyle>
-
-    </UserStyle>
-  </NamedLayer>
-
-</StyledLayerDescriptor>
+</Rule>
