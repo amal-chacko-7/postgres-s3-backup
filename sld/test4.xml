@@ -33,7 +33,7 @@
           <TextSymbolizer>
             <Label>
               <ogc:Function name="dateFormat">
-                <ogc:Literal>dd-MM-yyyy</ogc:Literal>
+                <ogc:Literal>yyyy-MM-dd</ogc:Literal>
                 <ogc:PropertyName>CrashDate</ogc:PropertyName>
               </ogc:Function>
             </Label>
@@ -45,16 +45,17 @@
             </Font>
 
             <LabelPlacement>
-              <PointPlacement>
-                <AnchorPoint>
-                  <AnchorPointX>0.5</AnchorPointX>
-                  <AnchorPointY>0</AnchorPointY>
-                </AnchorPoint>
-                <Displacement>
-                  <DisplacementX>0</DisplacementX>
-                  <DisplacementY>12</DisplacementY>
-                </Displacement>
-              </PointPlacement>
+                <PointPlacement>
+                    <AnchorPoint>
+                        <AnchorPointX>0.5</AnchorPointX>
+                        <AnchorPointY>0.5</AnchorPointY>
+                    </AnchorPoint>
+                    <Displacement>
+                        <DisplacementX>0</DisplacementX>
+                        <DisplacementY>35</DisplacementY>
+                        <!-- Matches OpenLayers offsetY -->
+                    </Displacement>
+                </PointPlacement>
             </LabelPlacement>
 
             <!-- White halo for readability -->
