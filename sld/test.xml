@@ -40,7 +40,7 @@
 					<!-- Adjust as needed -->
 					<TextSymbolizer>
 						<Label>
-							<ogc:PropertyName>ReferenceNumber</ogc:PropertyName>
+							<ogc:PropertyName>CrashDate</ogc:PropertyName>
 						</Label>
 						<Font>
 							<CssParameter name="font-family">Calibri</CssParameter>
@@ -115,7 +115,7 @@
 					<!-- Adjust as needed -->
 					<TextSymbolizer>
 						<Label>
-							<ogc:PropertyName>ReferenceNumber</ogc:PropertyName>
+							<ogc:PropertyName>CrashDate</ogc:PropertyName>
 						</Label>
 						<Font>
 							<CssParameter name="font-family">Calibri</CssParameter>
@@ -190,7 +190,7 @@
 					<!-- Adjust as needed -->
 					<TextSymbolizer>
 						<Label>
-							<ogc:PropertyName>ReferenceNumber</ogc:PropertyName>
+							<ogc:PropertyName>CrashDate</ogc:PropertyName>
 						</Label>
 						<Font>
 							<CssParameter name="font-family">Calibri</CssParameter>
