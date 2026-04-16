@@ -4,237 +4,207 @@
   xmlns:ogc="http://www.opengis.net/ogc"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<NamedLayer>
-		<Name>cambridge_crash_stag_view</Name>
-		<UserStyle>
-			<Title>Crashes</Title>
-			<FeatureTypeStyle>
-				<Rule>
-					<Title>  Fatal</Title>
-					<ogc:Filter>
-						<ogc:PropertyIsEqualTo>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-							<ogc:Literal>Fatal</ogc:Literal>
-						</ogc:PropertyIsEqualTo>
-					</ogc:Filter>
-					<PointSymbolizer>
-						<Graphic>
-							<ExternalGraphic>
-								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
-								<Format>image/svg+xml</Format>
-							</ExternalGraphic>
-							<Size>25</Size>
-							<AnchorPoint>
-								<AnchorPointX>0.7</AnchorPointX>
-								<AnchorPointY>0</AnchorPointY>
-							</AnchorPoint>
-						</Graphic>
-					</PointSymbolizer>
-				</Rule>
-				<Rule>
-					<Title>Fatal - Reference Number</Title>
-					<ogc:Filter>
-						<ogc:PropertyIsEqualTo>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-							<ogc:Literal>Fatal</ogc:Literal>
-						</ogc:PropertyIsEqualTo>
-					</ogc:Filter>
-					<!-- Hide label at wider zoom levels; show only after zooming in past this scale -->
-					<MaxScaleDenominator>30000</MaxScaleDenominator>
-					<!-- Adjust as needed -->
-					<TextSymbolizer>
-						<Label>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-						</Label>
-						<Font>
-							<CssParameter name="font-family">Calibri</CssParameter>
-							<CssParameter name="font-size">14</CssParameter>
-							<CssParameter name="font-weight">bold</CssParameter>
-						</Font>
-						<LabelPlacement>
-							<PointPlacement>
-								<AnchorPoint>
-									<AnchorPointX>0.5</AnchorPointX>
-									<AnchorPointY>0.5</AnchorPointY>
-								</AnchorPoint>
-								<Displacement>
-									<DisplacementX>0</DisplacementX>
-									<DisplacementY>35</DisplacementY>
-									<!-- Matches OpenLayers offsetY -->
-								</Displacement>
-							</PointPlacement>
-						</LabelPlacement>
-						<Halo>
-							<Radius>
-								<ogc:Literal>2</ogc:Literal>
-								<!-- Stroke width -->
-							</Radius>
-							<Fill>
-								<CssParameter name="fill">#FFFFFF</CssParameter>
-								<!-- Stroke color -->
-							</Fill>
-						</Halo>
-						<Fill>
-							<CssParameter name="fill">#FF0000</CssParameter>
-							<!-- Text color -->
-						</Fill>
-						<Priority>1</Priority>
-						<!-- Vendor options for collision handling -->
-						<VendorOption name="conflictResolution">false</VendorOption>
-						<VendorOption name="maxDisplacement">100</VendorOption>
-					</TextSymbolizer>
-				</Rule>
-				<Rule>
-					<Title>  Slight</Title>
-					<ogc:Filter>
-						<ogc:PropertyIsEqualTo>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-							<ogc:Literal>Slight</ogc:Literal>
-						</ogc:PropertyIsEqualTo>
-					</ogc:Filter>
-					<PointSymbolizer>
-						<Graphic>
-							<ExternalGraphic>
-								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
-								<Format>image/svg+xml</Format>
-							</ExternalGraphic>
-							<Size>25</Size>
-							<AnchorPoint>
-								<AnchorPointX>0.7</AnchorPointX>
-								<AnchorPointY>0</AnchorPointY>
-							</AnchorPoint>
-						</Graphic>
-					</PointSymbolizer>
-				</Rule>
-				<Rule>
-					<Title>Slight - Reference Number</Title>
-					<ogc:Filter>
-						<ogc:PropertyIsEqualTo>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-							<ogc:Literal>Slight</ogc:Literal>
-						</ogc:PropertyIsEqualTo>
-					</ogc:Filter>
-					<!-- Hide label at wider zoom levels; show only after zooming in past this scale -->
-					<MaxScaleDenominator>30000</MaxScaleDenominator>
-					<!-- Adjust as needed -->
-					<TextSymbolizer>
-						<Label>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-						</Label>
-						<Font>
-							<CssParameter name="font-family">Calibri</CssParameter>
-							<CssParameter name="font-size">14</CssParameter>
-							<CssParameter name="font-weight">bold</CssParameter>
-						</Font>
-						<LabelPlacement>
-							<PointPlacement>
-								<AnchorPoint>
-									<AnchorPointX>0.5</AnchorPointX>
-									<AnchorPointY>0.5</AnchorPointY>
-								</AnchorPoint>
-								<Displacement>
-									<DisplacementX>0</DisplacementX>
-									<DisplacementY>35</DisplacementY>
-									<!-- Matches OpenLayers offsetY -->
-								</Displacement>
-							</PointPlacement>
-						</LabelPlacement>
-						<Halo>
-							<Radius>
-								<ogc:Literal>2</ogc:Literal>
-								<!-- Stroke width -->
-							</Radius>
-							<Fill>
-								<CssParameter name="fill">#FFFFFF</CssParameter>
-								<!-- Stroke color -->
-							</Fill>
-						</Halo>
-						<Fill>
-							<CssParameter name="fill">#0f994e</CssParameter>
-							<!-- Text color -->
-						</Fill>
-						<Priority>1</Priority>
-						<!-- Vendor options for collision handling -->
-						<VendorOption name="conflictResolution">false</VendorOption>
-						<VendorOption name="maxDisplacement">100</VendorOption>
-					</TextSymbolizer>
-				</Rule>
-				<Rule>
-					<Title>  Serious</Title>
-					<ogc:Filter>
-						<ogc:PropertyIsEqualTo>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-							<ogc:Literal>Serious</ogc:Literal>
-						</ogc:PropertyIsEqualTo>
-					</ogc:Filter>
-					<PointSymbolizer>
-						<Graphic>
-							<ExternalGraphic>
-								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
-								<Format>image/svg+xml</Format>
-							</ExternalGraphic>
-							<Size>25</Size>
-							<AnchorPoint>
-								<AnchorPointX>0.7</AnchorPointX>
-								<AnchorPointY>0</AnchorPointY>
-							</AnchorPoint>
-						</Graphic>
-					</PointSymbolizer>
-				</Rule>
-				<Rule>
-					<Title>Serious - Reference Number</Title>
-					<ogc:Filter>
-						<ogc:PropertyIsEqualTo>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-							<ogc:Literal>Serious</ogc:Literal>
-						</ogc:PropertyIsEqualTo>
-					</ogc:Filter>
-					<!-- Hide label at wider zoom levels; show only after zooming in past this scale -->
-					<MaxScaleDenominator>30000</MaxScaleDenominator>
-					<!-- Adjust as needed -->
-					<TextSymbolizer>
-						<Label>
-							<ogc:PropertyName>CrashSeverity</ogc:PropertyName>
-						</Label>
-						<Font>
-							<CssParameter name="font-family">Calibri</CssParameter>
-							<CssParameter name="font-size">14</CssParameter>
-							<CssParameter name="font-weight">bold</CssParameter>
-						</Font>
-						<LabelPlacement>
-							<PointPlacement>
-								<AnchorPoint>
-									<AnchorPointX>0.5</AnchorPointX>
-									<AnchorPointY>0.5</AnchorPointY>
-								</AnchorPoint>
-								<Displacement>
-									<DisplacementX>0</DisplacementX>
-									<DisplacementY>35</DisplacementY>
-									<!-- Matches OpenLayers offsetY -->
-								</Displacement>
-							</PointPlacement>
-						</LabelPlacement>
-						<Halo>
-							<Radius>
-								<ogc:Literal>2</ogc:Literal>
-								<!-- Stroke width -->
-							</Radius>
-							<Fill>
-								<CssParameter name="fill">#FFFFFF</CssParameter>
-								<!-- Stroke color -->
-							</Fill>
-						</Halo>
-						<Fill>
-							<CssParameter name="fill">#ff9d00</CssParameter>
-							<!-- Text color -->
-						</Fill>
-						<Priority>1</Priority>
-						<!-- Vendor options for collision handling -->
-						<VendorOption name="conflictResolution">false</VendorOption>
-						<VendorOption name="maxDisplacement">100</VendorOption>
-					</TextSymbolizer>
-				</Rule>
-			</FeatureTypeStyle>
-		</UserStyle>
-	</NamedLayer>
+
+  <NamedLayer>
+    <Name>cambridge_crash_stag_view</Name>
+
+    <UserStyle>
+      <Title>Crashes with Clustering</Title>
+
+      <FeatureTypeStyle>
+
+        <!-- ================= CLUSTERING ================= -->
+        <Transformation>
+          <ogc:Function name="vec:PointStacker">
+            <ogc:Function name="parameter">
+              <ogc:Literal>data</ogc:Literal>
+            </ogc:Function>
+            <ogc:Function name="parameter">
+              <ogc:Literal>cellSize</ogc:Literal>
+              <ogc:Literal>50</ogc:Literal>
+            </ogc:Function>
+          </ogc:Function>
+        </Transformation>
+
+        <!-- ================= CLUSTER RULE ================= -->
+        <Rule>
+          <Title>Cluster</Title>
+          <ogc:Filter>
+            <ogc:PropertyIsGreaterThan>
+              <ogc:PropertyName>count</ogc:PropertyName>
+              <ogc:Literal>1</ogc:Literal>
+            </ogc:PropertyIsGreaterThan>
+          </ogc:Filter>
+
+          <PointSymbolizer>
+            <Graphic>
+              <Mark>
+                <WellKnownName>circle</WellKnownName>
+                <Fill>
+                  <CssParameter name="fill">#3399FF</CssParameter>
+                </Fill>
+              </Mark>
+              <Size>30</Size>
+            </Graphic>
+          </PointSymbolizer>
+
+          <TextSymbolizer>
+            <Label>
+              <ogc:PropertyName>count</ogc:PropertyName>
+            </Label>
+            <Font>
+              <CssParameter name="font-family">Calibri</CssParameter>
+              <CssParameter name="font-size">12</CssParameter>
+              <CssParameter name="font-weight">bold</CssParameter>
+            </Font>
+            <Fill>
+              <CssParameter name="fill">#FFFFFF</CssParameter>
+            </Fill>
+          </TextSymbolizer>
+        </Rule>
+
+        <!-- ================= FATAL ================= -->
+        <Rule>
+          <Title>Fatal</Title>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+                <ogc:Literal>Fatal</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>count</ogc:PropertyName>
+                <ogc:Literal>1</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+
+          <PointSymbolizer>
+            <Graphic>
+              <ExternalGraphic>
+                <OnlineResource xlink:type="simple"
+                  xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
+                <Format>image/svg+xml</Format>
+              </ExternalGraphic>
+              <Size>25</Size>
+              <AnchorPoint>
+                <AnchorPointX>0.7</AnchorPointX>
+                <AnchorPointY>0</AnchorPointY>
+              </AnchorPoint>
+            </Graphic>
+          </PointSymbolizer>
+        </Rule>
+
+        <Rule>
+          <Title>Fatal Label</Title>
+          <MaxScaleDenominator>30000</MaxScaleDenominator>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+                <ogc:Literal>Fatal</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>count</ogc:PropertyName>
+                <ogc:Literal>1</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+
+          <TextSymbolizer>
+            <Label>
+              <ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+            </Label>
+            <Font>
+              <CssParameter name="font-family">Calibri</CssParameter>
+              <CssParameter name="font-size">14</CssParameter>
+              <CssParameter name="font-weight">bold</CssParameter>
+            </Font>
+            <LabelPlacement>
+              <PointPlacement>
+                <Displacement>
+                  <DisplacementX>0</DisplacementX>
+                  <DisplacementY>35</DisplacementY>
+                </Displacement>
+              </PointPlacement>
+            </LabelPlacement>
+            <Halo>
+              <Radius>2</Radius>
+              <Fill>
+                <CssParameter name="fill">#FFFFFF</CssParameter>
+              </Fill>
+            </Halo>
+            <Fill>
+              <CssParameter name="fill">#FF0000</CssParameter>
+            </Fill>
+          </TextSymbolizer>
+        </Rule>
+
+        <!-- ================= SLIGHT ================= -->
+        <Rule>
+          <Title>Slight</Title>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+                <ogc:Literal>Slight</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>count</ogc:PropertyName>
+                <ogc:Literal>1</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+
+          <PointSymbolizer>
+            <Graphic>
+              <ExternalGraphic>
+                <OnlineResource xlink:type="simple"
+                  xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
+                <Format>image/svg+xml</Format>
+              </ExternalGraphic>
+              <Size>25</Size>
+              <AnchorPoint>
+                <AnchorPointX>0.7</AnchorPointX>
+                <AnchorPointY>0</AnchorPointY>
+              </AnchorPoint>
+            </Graphic>
+          </PointSymbolizer>
+        </Rule>
+
+        <!-- ================= SERIOUS ================= -->
+        <Rule>
+          <Title>Serious</Title>
+          <ogc:Filter>
+            <ogc:And>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>CrashSeverity</ogc:PropertyName>
+                <ogc:Literal>Serious</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+              <ogc:PropertyIsEqualTo>
+                <ogc:PropertyName>count</ogc:PropertyName>
+                <ogc:Literal>1</ogc:Literal>
+              </ogc:PropertyIsEqualTo>
+            </ogc:And>
+          </ogc:Filter>
+
+          <PointSymbolizer>
+            <Graphic>
+              <ExternalGraphic>
+                <OnlineResource xlink:type="simple"
+                  xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
+                <Format>image/svg+xml</Format>
+              </ExternalGraphic>
+              <Size>25</Size>
+              <AnchorPoint>
+                <AnchorPointX>0.7</AnchorPointX>
+                <AnchorPointY>0</AnchorPointY>
+              </AnchorPoint>
+            </Graphic>
+          </PointSymbolizer>
+        </Rule>
+
+      </FeatureTypeStyle>
+    </UserStyle>
+  </NamedLayer>
 </StyledLayerDescriptor>
