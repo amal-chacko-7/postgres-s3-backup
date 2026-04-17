@@ -19,10 +19,10 @@
               <Mark>
                 <WellKnownName>circle</WellKnownName>
                 <Fill>
-                  <CssParameter name="fill">#000000</CssParameter>
+                  <CssParameter name="fill">#ffffff</CssParameter>
                 </Fill>
                 <Stroke>
-                  <CssParameter name="stroke">#000000</CssParameter>
+                  <CssParameter name="stroke">#ffffff</CssParameter>
                   <CssParameter name="stroke-width">1</CssParameter>
                 </Stroke>
               </Mark>
