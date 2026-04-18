@@ -20,7 +20,7 @@
 					<PointSymbolizer>
 						<Graphic>
 							<ExternalGraphic>
-								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/403140/letter-c.svg"/>
+								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/403767/letter-c.svg"/>
 								<Format>image/svg+xml</Format>
 							</ExternalGraphic>
 							<Size>25</Size>
@@ -95,7 +95,7 @@
 					<PointSymbolizer>
 						<Graphic>
 							<ExternalGraphic>
-								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/403003/letter-b.svg"/>
+								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/403766/letter-b.svg"/>
 								<Format>image/svg+xml</Format>
 							</ExternalGraphic>
 							<Size>25</Size>
