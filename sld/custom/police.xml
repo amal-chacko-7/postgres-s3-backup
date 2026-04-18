@@ -95,7 +95,7 @@
 					<PointSymbolizer>
 						<Graphic>
 							<ExternalGraphic>
-								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
+								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/399137/location-arrow.svg"/>
 								<Format>image/svg+xml</Format>
 							</ExternalGraphic>
 							<Size>25</Size>
@@ -170,7 +170,7 @@
 					<PointSymbolizer>
 						<Graphic>
 							<ExternalGraphic>
-								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/528394/map-point-wave.svg"/>
+								<OnlineResource xlink:type="simple" xlink:href="https://www.svgrepo.com/show/399139/location-man-alt.svg"/>
 								<Format>image/svg+xml</Format>
 							</ExternalGraphic>
 							<Size>25</Size>
