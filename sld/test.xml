@@ -5,7 +5,7 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<NamedLayer>
-		<Name>Crash</Name>
+		<Name>mongolia_crashes_view_qc_custom2</Name>
 		<UserStyle>
 			<Title>Crashes</Title>
 			<FeatureTypeStyle>
