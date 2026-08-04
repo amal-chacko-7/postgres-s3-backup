@@ -5,13 +5,11 @@
 My name is Jeena Sebastian. I completed my BCA from St. George College,
 Aruvithura, Erattupetta. 
 
-I have work experience in hospital administration and office
-documentation. I also worked as a Flutter
-Developer Intern, where I developed and tested few small application and worked on functionality testing, debugging, and
-improving responsiveness. I have knowledge of manual testing concepts, test case
-preparation, bug reporting, functional testing etc. 
+Recently, I completed my Quality Analyst Internship at Zecser Business LLP, where I gained hands-on experience in software testing. 
+During my internship, I designed and executed manual test cases, performed functional and regression testing, identified and reported defects, and worked closely with developers to verify bug fixes. 
+I also assisted with test automation using Playwright, which helped me understand the basics of automation testing and improve code reliability.
 
-I am now looking for an opportunity as a tester fresher.
+I consider myself a detail-oriented, quick learner who enjoys identifying issues and ensuring software quality. I am now looking for an opportunity as a QA Tester where I can apply my knowledge, continue learning from experienced professionals, and contribute to delivering high-quality software products.
 
 ---
 # Questions about your background
