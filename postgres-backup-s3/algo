@@ -1,0 +1,21 @@
+strategies:
+  - name: overnight_exit_flow
+    enabled: true
+    trigger_mode: "independent"
+    trading_window:
+      start_time: "09:15"
+      stop_time: "15:30"
+    params:
+      symbol: "NSE:HINDZINC-EQ"
+      timeframe: "15m"
+      entry_price: 595.70
+      quantity: 8
+      exit_target_price: 602.05
+      stop_loss_pct: 5.0
+    independent_triggers:
+      - trigger: "first_candle"
+        schedule: "09:30:00"
+      - trigger: "target_exit"
+        schedule: "15m"
+      - trigger: "stop_loss"
+        schedule: "2m"
