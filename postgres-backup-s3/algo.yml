@@ -3,14 +3,14 @@ strategies:
     enabled: true
     trigger_mode: "independent"
     trading_window:
-      start_time: "09:15"
+      start_time: "09:16"
       stop_time: "15:30"
     params:
-      symbol: "NSE:PAYTM-EQ"
+      symbol: "NSE:HINDZINC-EQ"
       timeframe: "15m"
-      entry_price: 1700.7
-      quantity: 3
-      exit_target_price: 1725
+      entry_price: 629
+      quantity: 7
+      exit_target_price: 636.85
       stop_loss_pct: 5.0
     independent_triggers:
       - trigger: "first_candle"
