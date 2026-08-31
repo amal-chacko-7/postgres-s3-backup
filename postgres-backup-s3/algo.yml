@@ -6,11 +6,11 @@ strategies:
       start_time: "09:16"
       stop_time: "15:30"
     params:
-      symbol: "NSE:BHEL-EQ"
+      symbol: "NSE:ATHERENERG-EQ"
       timeframe: "15m"
-      entry_price: 432.35
-      quantity: 12
-      exit_target_price: 437.9
+      entry_price: 1687.1
+      quantity: 3
+      exit_target_price: 1,714.2
       stop_loss_pct: 5.0
     independent_triggers:
       - trigger: "first_candle"
