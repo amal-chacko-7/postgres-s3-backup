@@ -6,11 +6,11 @@ strategies:
       start_time: "09:16"
       stop_time: "15:30"
     params:
-      symbol: "NSE:ATHERENERG-EQ"
+      symbol: "NSE:WELCORP-EQ"
       timeframe: "15m"
-      entry_price: 1687.1
-      quantity: 3
-      exit_target_price: 1714.2
+      entry_price: 2527.7
+      quantity: 2
+      exit_target_price: 2575.3
       stop_loss_pct: 5.0
     independent_triggers:
       - trigger: "first_candle"
