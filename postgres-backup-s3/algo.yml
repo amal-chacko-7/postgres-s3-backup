@@ -10,7 +10,7 @@ strategies:
       timeframe: "15m"
       entry_price: 1687.1
       quantity: 3
-      exit_target_price: 1,714.2
+      exit_target_price: 1714.2
       stop_loss_pct: 5.0
     independent_triggers:
       - trigger: "first_candle"
